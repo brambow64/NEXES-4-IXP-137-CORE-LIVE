@@ -1,4 +1,4 @@
-# Contributing to IXP-137 CORE
+# Contributing to NEXUS - IXP-137 CORE
 
 First of all: thank you for your interest in contributing to the **IXP-137 CORE**
 experimental research project.
