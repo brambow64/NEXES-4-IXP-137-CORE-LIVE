@@ -1,4 +1,4 @@
-🌐 IXP-137 CORE
+🌐 NEXUS - IXP-137 CORE
 Autonomous Seismic Early-Warning Deployment Runner (EXPERIMENTAL)
 
 ⚠️ IMPORTANT — READ BEFORE USE
