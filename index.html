@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>IXP-137 CORE — Experimental Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IXP-137 CORE — experimental, non-operational research engine for cycle-driven field analysis." />
+  <style>
+    :root {
+      --bg: #04060a;
+      --fg: #f4f4f4;
+      --accent: #46e0ff;
+      --accent-soft: rgba(70, 224, 255, 0.25);
+      --danger: #ff4b6b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #11192a 0, #05070c 35%, #020308 100%);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .card {
+      max-width: 960px;
+      width: 100%;
+      background: radial-gradient(circle at top, rgba(70, 224, 255, 0.03), rgba(0, 0, 0, 0.9));
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.85), 0 0 80px rgba(70, 224, 255, 0.2);
+      padding: 2.5rem 2rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(70, 224, 255, 0.2), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(255, 75, 107, 0.18), transparent 60%);
+      opacity: 0.7;
+      z-index: -1;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .badge {
+      border-radius: 999px;
+      padding: 0.2rem 0.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(0, 0, 0, 0.65);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 3.3vw, 2.8rem);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.7rem;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    h2 {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 400;
+      color: #c8d1ff;
+      margin-bottom: 1.6rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .lead {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #d5ddff;
+      margin-bottom: 1.4rem;
+    }
+
+    .warn {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: #f9c8d5;
+      background: rgba(255, 75, 107, 0.08);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid rgba(255, 75, 107, 0.35);
+      margin-bottom: 1.3rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: radial-gradient(circle at 20% 0%, #46e0ff, #0077a6);
+      color: #011017;
+      box-shadow: 0 0 24px rgba(70, 224, 255, 0.6);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 34px rgba(70, 224, 255, 0.85);
+      background: radial-gradient(circle at 80% 0%, #7af0ff, #008bbf);
+    }
+
+    .btn span.icon {
+      font-size: 1.15rem;
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #a8b0d8;
+    }
+
+    .panel {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: radial-gradient(circle at top, rgba(70, 224, 255, 0.05), rgba(0, 0, 0, 0.85));
+      padding: 1.1rem 1.1rem 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .panel-title {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #a6b4ff;
+      margin-bottom: 0.6rem;
+    }
+
+    .panel ul {
+      list-style: none;
+      display: grid;
+      gap: 0.25rem;
+      font-size: 0.8rem;
+      color: #cfd7ff;
+    }
+
+    .panel li::before {
+      content: "•";
+      display: inline-block;
+      margin-right: 0.45rem;
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 0.8rem 1rem 1.4rem;
+      font-size: 0.75rem;
+      color: #7c84a5;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 780px) {
+      .card {
+        padding: 2rem 1.4rem 1.8rem;
+      }
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card">
+      <div class="badge-row">
+        <span class="badge">
+          <span class="badge-dot"></span>
+          IXP-137 CORE
+        </span>
+        <span class="badge">Experimental Research Only</span>
+        <span class="badge">Non-Operational</span>
+        <span class="badge">24/7 Cycle Runner</span>
+      </div>
+
+      <h1>IXP-137 <span>CORE</span></h1>
+      <h2>Autonomous, crash-safe experimental engine for cycle-driven field analysis.</h2>
+
+      <div class="grid">
+        <section>
+          <p class="lead">
+            The IXP-137 CORE ties together macro-cycles, micro-cycles, harmonic envelopes
+            and directional stress-fields into a <strong>single, autonomous research engine</strong>.
+            It does not predict reality. It lets you study how a universe of signals
+            would <em>behave</em> if it tried.
+          </p>
+
+          <div class="warn">
+            <strong>Critical notice:</strong><br />
+            This system is strictly experimental and non-operational. It must not be
+            used for real-world early warning, safety decisions, evacuation planning,
+            or any hazard communication. It is a research instrument only.
+          </div>
+
+          <div class="cta-row">
+            <a class="btn" href="core.html">
+              <span class="icon">▶</span>
+              <span>Enter the IXP-137 CORE</span>
+            </a>
+            <span class="hint">Click to access the full external specification and research interface.</span>
+          </div>
+        </section>
+
+        <aside class="panel">
+          <div class="panel-title">What this core is connected to</div>
+          <ul>
+            <li>Macro- & micro-cycle simulation (long/short wave)</li>
+            <li>Directional stress-field orientation (N / NE / …)</li>
+            <li>Probability envelopes for event & swarm scenarios</li>
+            <li>Non-operational early-warning prototypes (research only)</li>
+            <li>Full logging of every cycle for replay & analysis</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    IXP-137 CORE &mdash; Experimental Research Engine &middot;
+    <a href="https://github.com/brambow64" target="_blank" rel="noreferrer">GitHub</a>
+  </footer>
+</body>
+</html>
