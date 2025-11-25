@@ -1,0 +1,101 @@
+IXP-137 EXPERIMENTAL RESEARCH LICENSE (ERL-1.0)
+
+Copyright (c) 2025  [Your Name or Organization]
+
+This software, including but not limited to the IXP-137 CORE, any associated
+modules, configuration files and documentation (the "Software"), is made
+available for experimental and research purposes only.
+
+
+1. PERMITTED USE
+
+Subject to the conditions below, you are hereby granted a worldwide,
+royalty-free, non-exclusive license to:
+
+  - use, copy and modify the Software;
+  - merge the Software into other projects;
+  - distribute the Software, with or without modification,
+
+for research, educational and non-safety-critical purposes.
+
+
+2. PROHIBITED USE
+
+You MAY NOT use the Software:
+
+  - as a primary or official early-warning system for earthquakes, tsunamis,
+    volcanic activity or any other natural hazard;
+  - to make or justify real-world emergency, evacuation, sheltering or
+    life-safety decisions;
+  - in any context where failure, delay or inaccuracy of the Software could
+    reasonably be expected to lead to injury, loss of life, environmental
+    damage or substantial economic loss;
+  - in any system that is marketed, presented or implied as certified,
+    guaranteed, officially approved or operationally reliable for public safety.
+
+Any use of the Software in safety-critical, life-critical or emergency
+response workflows is strictly forbidden under this License.
+
+
+3. NO WARRANTY
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND
+NON-INFRINGEMENT.
+
+The authors and copyright holders make NO CLAIM that the Software is
+accurate, reliable, timely, complete, or suitable for operational or
+safety-related use. Any predictions, probabilities, risk estimates or
+"early warning" outputs produced by the Software are to be treated as
+experimental, approximate and potentially incorrect.
+
+
+4. LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL THE AUTHORS, COPYRIGHT HOLDERS, OR CONTRIBUTORS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+WITHOUT LIMITING THE GENERALITY OF THE FOREGOING, THE AUTHORS AND
+COPYRIGHT HOLDERS SHALL NOT BE LIABLE FOR:
+
+  - PERSONAL INJURY OR DEATH;
+  - LOSS OR DAMAGE TO PROPERTY;
+  - INTERRUPTION OF BUSINESS OR SERVICES;
+  - LOSS OF DATA, PROFITS OR REVENUE;
+  - ANY DECISION MADE OR ACTION TAKEN IN RELIANCE UPON OUTPUT FROM THE SOFTWARE.
+
+
+5. ATTRIBUTION AND REDISTRIBUTION
+
+If you redistribute the Software, in whole or in part, with or without
+modification, you MUST:
+
+  - retain this License text in full;
+  - clearly indicate that the Software is "EXPERIMENTAL" and "NOT FOR
+    SAFETY-CRITICAL USE";
+  - not remove or obscure any notices referring to "IXP-137 CORE" or to
+    the experimental nature of the Software.
+
+If you substantially modify the Software, you are encouraged (but not
+required) to document the changes and indicate that your version is
+derived from the original IXP-137 CORE project.
+
+
+6. TERMINATION
+
+This License shall terminate automatically if you fail to comply with any
+of its terms. Upon termination, you must cease all use of the Software
+and destroy any copies you hold, except where retention is required by law.
+
+Sections 3 (NO WARRANTY) and 4 (LIMITATION OF LIABILITY) shall survive
+any termination of this License.
+
+
+7. ACCEPTANCE
+
+By using, copying, modifying or distributing the Software, you indicate
+your acceptance of this License and its terms. If you do not agree to
+these terms, you must not use the Software.
