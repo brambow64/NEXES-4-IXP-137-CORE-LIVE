@@ -30,3 +30,16 @@ If you use this software, you do so voluntarily and entirely at your own risk.
 
 IXP-137 CORE is an autonomous, crash-safe deployment runner designed for experimental 24/7 seismic monitoring.
 It executes a single live-cycle, generates structured alerts, and logs all system output to disk for transparency and analysis.
+
+<p align="center">
+  <img src="A_digital_graphic_banner_displays_the_IXP-137_CORE.png" width="85%">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-EXPERIMENTAL-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Build-Research_Only-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Python-3.8_--_3.12-3776AB?style=for-the-badge&logo=python&logoColor=white">
+  <img src="https://img.shields.io/badge/License-ERL--1.0-red?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Safety-Non_Operational-black?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Maintainer-Active-brightgreen?style=for-the-badge">
+</p>
